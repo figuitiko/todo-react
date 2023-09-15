@@ -6,9 +6,11 @@ export const useTodoItem = (item: Todo) => {
   const inputRef = useRef<HTMLInputElement>(null)
   const updateTodo = useTodoStore(state => state.updateTodo)
   const deleteTodo = useTodoStore(state => state.deleteTodo)
+
   const handleIsEditable = () => {
     setIsEditable(!isEditable)
   }
+
   const handleOnBlur = (e: React.FocusEvent<HTMLInputElement>) => {
     console.log(e.target.value)
     updateTodo(item._id, {
@@ -17,6 +19,7 @@ export const useTodoItem = (item: Todo) => {
     })
     setIsEditable(false)
   }
+
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>, id: string) => {
     if (e.key === 'Enter') {
       console.log(inputRef?.current?.value)
@@ -27,9 +30,11 @@ export const useTodoItem = (item: Todo) => {
       setIsEditable(false)
     }
   }
+
   const handleIsCompleted = (id: string) => {
     updateTodo(id, { name: item.name, isCompleted: !item.isCompleted })
   }
+
   const handleDeleteTodo = (id: string) => {
     deleteTodo(id)
   }

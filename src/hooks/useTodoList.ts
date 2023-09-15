@@ -26,6 +26,7 @@ export const useTodoList = () => {
       setIsNew(false)
     }
   }
+
   const handleAddTodoOnBlur = (e: React.FocusEvent<HTMLInputElement>) => {
     addTodo({
       name: e.currentTarget.value,
