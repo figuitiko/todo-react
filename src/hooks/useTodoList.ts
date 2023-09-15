@@ -12,6 +12,7 @@ export const useTodoList = () => {
   const getSkipped = useTodoStore((state) => state.getSkipped)
   const fetchTodos = useTodoStore((state) => state.fetchTodos)
   const [isNew, setIsNew] = useState(false)
+  
   const handleSetNew = () => {
     setIsNew(!isNew)
   }
